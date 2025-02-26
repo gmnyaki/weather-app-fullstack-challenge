@@ -3,13 +3,19 @@ FROM php:8.1-apache
 RUN apt-get update
 
 RUN apt-get install -y \
+	unzip \
     pkg-config  \
-    libzip-dev
+    libzip-dev \
+    libpng-dev \
+    libonig-dev \
+    libxml2-dev \
+    libssl-dev 
 
 RUN docker-php-ext-install \
     mysqli \
     pdo_mysql \
-    zip
+    zip 
+	
 
 ENV APACHE_DOCUMENT_ROOT /var/www/html/public
 
