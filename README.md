@@ -1,61 +1,51 @@
-# Fullstack Challenge
+# Weather App Fullstack Challenge
 
-## Goal
-Using Laravel and Vue.js, create an application which shows the weather for a set of users to demonstrate your coding chops.
+This project is a submission for the Fullstack Challenge, showcasing a user list with real-time weather data. Built with Laravel for the backend and Vue.js for the frontend, it integrates the OpenWeatherMap API to fetch weather details based on user locations. The application uses Redis for caching weather data to ensure it’s no older than 1 hour, improving performance and reducing API calls. The frontend is styled with Tailwind CSS for a modern, responsive design, and the project includes comprehensive setup instructions for Docker, project dependencies, and running tests. Error handling ensures graceful degradation during API failures, and unit tests validate both backend and frontend functionality.
 
-## Acceptance Criteria
-Instructions are purposely left somewhat open-ended to allow the developer to make some of their own decisions on implementation and design. We have provided some initial scaffolding structure/examples, however feel free to make it your own and remove anything unnecessary.
+---
 
-1. Clone this repository (not fork).
-2. Create a branch off of the `main` branch to do your work on.
-3. Chose your own weather API, such as:
-   - https://openweathermap.org/api
-   - https://www.weather.gov/documentation/services-web-api
-4. Show a list of users and their current weather.
-   - Use the twenty randomized users generated from the seeder process, each having their own unique location (longitude and latitude).
-   - The current weather conditions shown here should be no older than 1 hour.
-5. Clicking a user should open a modal or screen, which shows that user's detailed weather report.
-   - The current weather conditions shown here should be no older than 1 hour.
-6. Internal API request(s) to retrieve weather data should take no longer than 500ms.
-   - Consider that external APIs could and will take longer than this from time to time and should be accounted for.
-7. The availability of external APIs is not guaranteed and should not cause the page to crash.
+## Features
 
-Once completed:
-1. Open a PR to merge the branch you did your work on into the `main` branch so our team can provide code review comments.
-2. Send a link of your repository to the interviewer and let them know how long the exercise took.
+- **User List**: Displays a list of users with their current weather.
+- **Weather Modal**: Clicking a user opens a modal with detailed weather information.
+- **Redis Caching**: Weather data is cached for up to 1 hour to improve performance.
+- **Error Handling**: Gracefully handles external API failures.
+- **Tailwind CSS**: Modern and responsive frontend design.
+- **Unit Tests**: Includes tests for both backend and frontend.
 
-## Things to consider
-- Redis is available (Docker service) if you wish to use it.
-- Queues, workers, websockets could be useful.
-- Feel free to use a frontend UI library such as PrimeVue, Vuetify, Bootstrap, Tailwind, etc. 
-- Include anything else you desire to show off your coding chops!
+---
 
-## What we are looking for
-- Attention to detail
-- Testability
-- Best practices
-- Design patterns
-- This is not a designer test so the frontend does not have to look "good," but of course bonus points if you can make it look appealing.
+## Screenshots
 
-## To run the local dev environment:
+### User List
+![User List](/screenshots/user-list.png)
 
-### API
-- Navigate to `/api` folder
-- Ensure version docker installed is active on host
-- Copy .env.example: `cp .env.example .env`
-- Start docker containers `docker compose up` (add `-d` to run detached)
-- Connect to container to run commands: `docker exec -it fullstack-challenge-app-1 bash`
-  - Make sure you are in the `/var/www/html` path
-  - Install php dependencies: `composer install`
-  - Setup app key: `php artisan key:generate`
-  - Migrate database: `php artisan migrate` 
-  - Seed database: `php artisan db:seed`
-  - Run tests: `php artisan test`
-- Visit api: `http://localhost`
+### Weather Modal
+![Weather Modal](/screenshots/weather-modal.png)
 
-### Frontend
-- Navigate to `/frontend` folder
-- Ensure nodejs v18 is active on host
-- Install javascript dependencies: `npm install`
-- Run frontend: `npm run dev`
-- Visit frontend: `http://localhost:5173`
+---
+
+## Technologies Used
+
+- **Backend**: Laravel, Redis
+- **Frontend**: Vue.js, Tailwind CSS
+- **APIs**: OpenWeatherMap API
+
+---
+
+## Setup Instructions
+
+### Prerequisites
+
+- Docker
+- PHP 8.x
+- Node.js 18.x
+- Composer
+- Redis
+
+---
+
+### Backend Setup
+
+1. Navigate to the `/api` folder:
+   
