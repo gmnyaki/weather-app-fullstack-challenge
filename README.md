@@ -17,11 +17,11 @@ This project is a submission for the Fullstack Challenge, showcasing a user list
 
 ## Screenshots
 
-### User List
-![User List](/screenshots/user-list.png)
+![Image](https://github.com/user-attachments/assets/2249fac9-3b20-4de6-98dd-a80bec57fc44)
+![Image](https://github.com/user-attachments/assets/5fbc70c7-2d34-4dc1-aa37-b6c62bedf08b)
+![Image](https://github.com/user-attachments/assets/0acfcb22-67e9-484d-b382-f5556dc71942)
+![Image](https://github.com/user-attachments/assets/71815863-7dc6-4e7d-819f-de677f83fb6e)
 
-### Weather Modal
-![Weather Modal](/screenshots/weather-modal.png)
 
 ---
 
@@ -45,7 +45,39 @@ This project is a submission for the Fullstack Challenge, showcasing a user list
 
 ---
 
-### Backend Setup
+## Backend Setup
 
-1. Navigate to the `/api` folder:
+```sh
+cd api
+cp .env.example .env
+docker compose up -d
+docker exec -it fullstack-challenge-app-1 bash
+composer install
+php artisan key:generate
+php artisan migrate
+php artisan db:seed
+```
+
+The backend API will be available at:
+
+Open your browser and visit : [http://localhost](http://localhost)
+
+```sh
+php artisan test
+```
+
+## Frontend Setup
+
+Navigate to the `/frontend` folder:
+
+```sh
+cd frontend
+npm install
+npm run dev
+```
+
+Open your browser and visit:
+
+[http://localhost:5173](http://localhost:5173)
+
    
