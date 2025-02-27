@@ -14,6 +14,9 @@ class AppServiceProvider extends ServiceProvider
     public function register()
     {
         //
+        $this->app->bind(WeatherService::class, function ($app) {
+        return new WeatherService();
+    });
     }
 
     /**

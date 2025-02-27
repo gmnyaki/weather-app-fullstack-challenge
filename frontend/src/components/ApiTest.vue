@@ -1,31 +1,21 @@
-<script>
-export default {
-  data: () => ({
-    apiResponse: null
-  }),
+<script setup lang="ts">
+import { ref, onMounted } from "vue";
+import apiClient from "@/services/api";
 
-  created() {
-    this.fetchData()
-  },
+const message = ref("Pinging the API...");
 
-  methods: {
-    async fetchData() {
-      const url = 'http://localhost/'
-      this.apiResponse = await (await fetch(url)).json()
-    }
+onMounted(async () => {
+  try {
+    const response = await apiClient.get("/");
+    message.value = response.data.message;
+  } catch (error) {
+    message.value = "Failed to ping the API.";
   }
-}
+});
 </script>
 
 <template>
-  <div v-if="!apiResponse">
-    Pinging the api...
-  </div>
-
-  <div v-if="apiResponse">
-    The api responded with: <br />
-    <code>
-    {{ apiResponse }}
-    </code>
+  <div>
+    <p>{{ message }}</p>
   </div>
 </template>
